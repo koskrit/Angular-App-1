@@ -1,0 +1,20 @@
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+.shadow-box {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.shadow-top {
+  box-shadow: 0 -3px 5px -5px rgba(0, 0, 0, 0.1);
+}

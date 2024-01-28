@@ -20,10 +20,6 @@ const routes: Routes = [
     path: 'view',
     component: ViewComponent,
   },
-  {
-    path: '**',
-    component: NotFound404Component,
-  },
 
   {
     path: 'register-callback',
@@ -32,6 +28,10 @@ const routes: Routes = [
   {
     path: 'signin-callback',
     component: SigninCallbackComponent,
+  },
+  {
+    path: '**',
+    component: NotFound404Component,
   },
 ];
 

@@ -16,4 +16,11 @@ export class AuthService {
       .logoff()
       .subscribe((result) => console.log(result));
   }
+
+  register() {
+    const callbackUrl = 'http://localhost:4200/register-callback';
+    const params = new URLSearchParams(`redirectUrl=${callbackUrl}`);
+    window.location.href =
+      'https://localhost:4242/Account/Register?' + params.toString();
+  }
 }

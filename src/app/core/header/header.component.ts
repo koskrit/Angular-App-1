@@ -1,3 +1,4 @@
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Component, HostListener, ElementRef } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
@@ -13,8 +14,17 @@ export class HeaderComponent {
 
   authService: AuthService;
 
-  constructor(private elementRef: ElementRef, authService: AuthService) {
+  constructor(
+    private elementRef: ElementRef,
+    authService: AuthService,
+    private oidcSecurityService: OidcSecurityService
+  ) {
     this.authService = authService;
+  }
+  ngOnInit() {
+    this.oidcSecurityService.isAuthenticated().subscribe((isSignedIn) => {
+      this.signedIn = isSignedIn;
+    });
   }
 
   getSignedInfo() {

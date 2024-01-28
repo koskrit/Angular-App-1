@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { environment } from '../environments/environment.development';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { FooterComponent } from './core/footer/footer.component';
 import { ViewComponent } from './pages/view/view.component';
 import { ArticleComponent } from './pages/view/components/article/article.component';
 import { NotFound404Component } from './pages/not-found404/not-found404.component';
+import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,17 @@ import { NotFound404Component } from './pages/not-found404/not-found404.componen
     ArticleComponent,
     NotFound404Component,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+
+    AuthModule.forRoot({
+      config: {
+        ...environment.oidc_config,
+        logLevel: LogLevel.Debug,
+      },
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

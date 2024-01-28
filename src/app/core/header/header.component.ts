@@ -1,4 +1,5 @@
 import { Component, HostListener, ElementRef } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,11 +7,15 @@ import { Component, HostListener, ElementRef } from '@angular/core';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  signedIn = true;
+  signedIn = false;
   showModal = false;
   showMobileMenu = false;
 
-  constructor(private elementRef: ElementRef) {}
+  authService: AuthService;
+
+  constructor(private elementRef: ElementRef, authService: AuthService) {
+    this.authService = authService;
+  }
 
   getSignedInfo() {
     return this.signedIn;

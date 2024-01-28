@@ -7,19 +7,19 @@
         class="flex flex-row bg-white justify-between items-center mt-2 mb-2 md:m-0 hidden md:flex"
       >
         <a
-          href="#"
+          routerLink="/"
           fontfamily="Raleway"
           class="text-gray-600 text-center mr-6 font-medium text-base"
           >Home</a
         >
         <a
-          href="#"
+          routerLink="/view"
           fontfamily="Raleway"
           class="text-gray-600 text-center mr-6 font-medium text-base"
           >View</a
         >
         <a
-          href="#"
+          routerLink="/create"
           fontfamily="Raleway"
           class="text-gray-600 text-center font-medium text-base"
           >Create</a
@@ -33,6 +33,57 @@
       <div
         class="flex justify-center items-center md:justify-start hidden md:flex"
       >
+        @if (signedIn) {
+        <div class="ml-4 flex items-center md:ml-6">
+          <div class="ml-3 relative">
+            <button
+              class="flex items-center bg-white rounded-full hover:shadow-sm transition duration-300 focus:outline-none"
+              id="user-menu-button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              (click)="toggleModal()"
+            >
+              <img
+                class="h-12 w-12 rounded-full m-2"
+                src="https://via.placeholder.com/48"
+                alt="User Avatar"
+              />
+              <span class="text-sm font-medium text-gray-800 mr-4"
+                >Username</span
+              >
+            </button>
+
+            <!-- Dropdown menu, show/hide based on menu state. -->
+            <div
+              class="origin-top-right top-5 absolute -right-2 mt-12 w-36 rounded-md py-1 bg-white ring-"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="user-menu-button"
+              id="user-menu"
+              *ngIf="showModal"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                >Your Profile</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                >Settings</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                role="menuitem"
+                >Sign out</a
+              >
+            </div>
+          </div>
+        </div>
+        } @else {
         <button
           fontfamily="Arial"
           class="h-9 w-24 text-gray-600 bg-white border-2 border-white flex items-center justify-center text-center rounded-lg text-lg font-normal mr-6"
@@ -45,8 +96,9 @@
         >
           Sign up
         </button>
+        }
       </div>
-      <div class="md:hidden flex items-center">
+      <div class="md:hidden flex items-center" (click)="toggleMobileMenu()">
         <div class="outline-none mobile-menu-button">
           <svg
             id="Windframe_rA1kdiC5w8Y"
@@ -62,26 +114,26 @@
         </div>
       </div>
     </div>
-    <div class="hidden md:hidden md:hidden mobile-menu">
+    <div class="md:hidden md:hidden mobile-menu" *ngIf="showMobileMenu">
       <div>
         <div class="flex flex-col">
           <a
-            href="#"
+            routerLink=""
             fontfamily="Raleway"
             class="text-gray-600 text-center mt-2 font-medium text-base"
-            >Product</a
+            >Home</a
           >
           <a
-            href="#"
+            routerLink="View"
             fontfamily="Raleway"
             class="text-gray-600 text-center mt-2 font-medium text-base"
-            >Features</a
+            >View</a
           >
           <a
-            href="#"
+            routerLink="Create"
             fontfamily="Raleway"
             class="text-gray-600 text-center mt-2 font-medium text-base"
-            >Pricing</a
+            >Create</a
           >
           <button
             fontfamily="Arial"

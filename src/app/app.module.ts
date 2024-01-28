@@ -13,7 +13,6 @@ import { ArticleComponent } from './pages/view/components/article/article.compon
 import { NotFound404Component } from './pages/not-found404/not-found404.component';
 import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
 import { RegisterCallbackComponent } from './pages/register-callback/register-callback.component';
-import { SignInCallbackComponent } from './pages/sign-in-callback/sign-in-callback.component';
 import { SigninCallbackComponent } from './pages/signin-callback/signin-callback.component';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { SigninCallbackComponent } from './pages/signin-callback/signin-callback
     ArticleComponent,
     NotFound404Component,
     RegisterCallbackComponent,
-    SignInCallbackComponent,
     SigninCallbackComponent,
   ],
   imports: [

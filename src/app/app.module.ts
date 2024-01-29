@@ -16,6 +16,7 @@ import { RegisterCallbackComponent } from './pages/register-callback/register-ca
 import { SigninCallbackComponent } from './pages/signin-callback/signin-callback.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { EditorComponent } from './pages/editor/editor.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { EditorComponent } from './pages/editor/editor.component';
       },
     }),
     AngularEditorModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

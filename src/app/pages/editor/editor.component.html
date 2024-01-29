@@ -9,6 +9,8 @@
     <input
       required
       type="text"
+      [(ngModel)]="title"
+      (input)="validateInput($event)"
       name="note-title"
       id="note-title"
       placeholder="Enter your Title..."
@@ -21,10 +23,13 @@
     name="editor"
     class="h-screen"
     [placeholder]="'Enter text here...'"
+    [(ngModel)]="htmlContent"
+    [config]="editorConfig"
   ></angular-editor>
 
   <div>
     <button
+      (click)="saveNote()"
       class="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"
     >
       Submit

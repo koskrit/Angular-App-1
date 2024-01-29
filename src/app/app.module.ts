@@ -15,6 +15,7 @@ import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
 import { RegisterCallbackComponent } from './pages/register-callback/register-callback.component';
 import { SigninCallbackComponent } from './pages/signin-callback/signin-callback.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { EditorComponent } from './pages/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NotFound404Component,
     RegisterCallbackComponent,
     SigninCallbackComponent,
+    EditorComponent,
   ],
   imports: [
     BrowserModule,

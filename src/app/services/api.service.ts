@@ -42,10 +42,11 @@ export class ApiService {
   }
 
   async delete(path: string, id: number) {
+    debugger;
     const raw = await fetch(this.baseUrl + path + `/${id}`, {
       method: 'DELETE',
     });
-    const data = await raw.json();
+    const data = await raw.text();
 
     return data;
   }

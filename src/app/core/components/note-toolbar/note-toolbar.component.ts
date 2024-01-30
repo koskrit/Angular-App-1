@@ -13,7 +13,9 @@ export class NoteToolbarComponent {
   @Input() note: Note | undefined;
   @Input() isEditor: boolean = false;
 
-  noteUrl: string | undefined;
+  noteEditUrl: string | undefined;
+  noteViewUrl: string | undefined;
+
   queryParams: any;
 
   constructor(
@@ -22,7 +24,11 @@ export class NoteToolbarComponent {
     private router: Router
   ) {}
   ngAfterContentChecked() {
-    this.noteUrl = this.router.createUrlTree(['/editor']).toString();
+    this.noteEditUrl = this.router.createUrlTree(['/editor']).toString();
+    this.noteViewUrl = this.router
+      .createUrlTree(['/note-viewer', this.note?.id])
+      .toString();
+
     this.queryParams = { id: this.note?.id };
   }
 

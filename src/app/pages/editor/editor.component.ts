@@ -67,8 +67,9 @@ export class EditorComponent {
     };
 
     try {
+      this.toast.loader(true);
       const res = await this.api.post('Notes', note);
-
+      this.toast.loader(false);
       this.toast.show(
         'Note Created',
         'Your new note has been created.',
@@ -76,6 +77,7 @@ export class EditorComponent {
       );
       console.log(res);
     } catch (err) {
+      this.toast.loader(false);
       this.toast.show(
         "Note wasn't created!",
         'There was a problem creating your Note.',

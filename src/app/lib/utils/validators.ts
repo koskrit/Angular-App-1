@@ -3,8 +3,11 @@ export const validators = {
   max: (input: HTMLTextAreaElement, max: number) => input.value.length <= max,
 };
 
-export const validateLength = (value: number, min: number, max: number) =>
-  value >= min && value <= max;
+export const validateLength = (value: number, min: number, max?: number) => {
+  if (max) {
+    return value >= min && value <= max;
+  } else return value >= min;
+};
 
 export const inputValidators = {
   inputLength: (input: HTMLTextAreaElement, min: number, max: number) =>

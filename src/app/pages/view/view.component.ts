@@ -17,7 +17,7 @@ export class ViewComponent {
     this.toast.loader(true);
     try {
       const data = (await this.api.get('notes')) as Note[];
-      this.notes = data;
+      this.notes = data.reverse();
       this.toast.loader(false);
     } catch (err: any) {
       this.toast.loader(false);

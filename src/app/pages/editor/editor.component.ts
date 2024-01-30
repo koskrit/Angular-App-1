@@ -4,6 +4,7 @@ import { inputValidators, validateLength } from '../../lib/utils/validators';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { ApiService } from '../../services/api.service';
 import { NotificationService } from '../../services/notification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editor',
@@ -11,7 +12,11 @@ import { NotificationService } from '../../services/notification.service';
   styleUrl: './editor.component.css',
 })
 export class EditorComponent {
-  constructor(private api: ApiService, private toast: NotificationService) {}
+  constructor(
+    private api: ApiService,
+    private toast: NotificationService,
+    private router: Router
+  ) {}
   htmlContent = '';
   title = '';
 
@@ -76,6 +81,7 @@ export class EditorComponent {
         'success'
       );
       console.log(res);
+      this.router.navigate(['/view']);
     } catch (err) {
       this.toast.loader(false);
       this.toast.show(

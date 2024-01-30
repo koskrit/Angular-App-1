@@ -4,7 +4,7 @@ import { inputValidators, validateLength } from '../../lib/utils/validators';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { ApiService } from '../../services/api.service';
 import { NotificationService } from '../../services/notification.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editor',
@@ -12,13 +12,17 @@ import { Router } from '@angular/router';
   styleUrl: './editor.component.css',
 })
 export class EditorComponent {
+  note: Note | undefined;
+
   constructor(
     private api: ApiService,
     private toast: NotificationService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
   htmlContent = '';
   title = '';
+  showToolbar = false;
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -49,6 +53,32 @@ export class EditorComponent {
     toolbarPosition: 'top',
     toolbarHiddenButtons: [], //['bold', 'italic'], ['fontSize']
   };
+
+  async ngOnInit() {
+    const id = this.route.snapshot.queryParams['id'];
+    if (id) {
+      this.toast.loader(true);
+      try {
+        const data = (await this.api.get('notes/' + id)) as Note;
+        this.note = data;
+        this.toast.loader(false);
+        this.loadContent();
+      } catch (err: any) {
+        this.toast.loader(false);
+        this.toast.show(
+          "Couldn't Load Note",
+          'There was an issue  loading the note!',
+          'error'
+        );
+      }
+    }
+  }
+
+  loadContent() {
+    this.htmlContent = this.note?.htmlContent as string;
+    this.title = this.note?.title as string;
+    this.showToolbar = true;
+  }
 
   validateInput(e: Event) {
     const target = e.target as HTMLTextAreaElement;

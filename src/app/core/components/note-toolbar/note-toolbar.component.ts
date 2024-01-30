@@ -14,6 +14,7 @@ export class NoteToolbarComponent {
   @Input() isEditor: boolean = false;
 
   noteUrl: string | undefined;
+  queryParams: any;
 
   constructor(
     private api: ApiService,
@@ -21,9 +22,8 @@ export class NoteToolbarComponent {
     private router: Router
   ) {}
   ngAfterContentChecked() {
-    this.noteUrl = this.router
-      .createUrlTree(['/editor', this.note?.id])
-      .toString();
+    this.noteUrl = this.router.createUrlTree(['/editor']).toString();
+    this.queryParams = { id: this.note?.id };
   }
 
   async deleteNote() {

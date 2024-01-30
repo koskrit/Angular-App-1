@@ -23,6 +23,7 @@ export class EditorComponent {
   htmlContent = '';
   title = '';
   showToolbar = false;
+  isNoteEditMode = false;
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -63,6 +64,8 @@ export class EditorComponent {
         this.note = data;
         this.toast.loader(false);
         this.loadContent();
+
+        this.isNoteEditMode = true;
       } catch (err: any) {
         this.toast.loader(false);
         this.toast.show(
@@ -85,7 +88,7 @@ export class EditorComponent {
     inputValidators.inputLength(target, 3, 100);
   }
 
-  async saveNote() {
+  async createNote() {
     const titleValidated = validateLength(this.title.length, 3, 100);
     const contentValidated = validateLength(this.htmlContent.length, 3);
 
@@ -119,6 +122,42 @@ export class EditorComponent {
       this.toast.show(
         "Note wasn't created!",
         'There was a problem creating your Note.',
+        'error'
+      );
+    }
+  }
+
+  async saveNote() {
+    debugger;
+    const titleValidated = validateLength(this.title.length, 3, 100);
+    const contentValidated = validateLength(this.htmlContent.length, 3);
+
+    if (!titleValidated || !contentValidated) {
+      this.toast.show(
+        'Validation Error',
+        'Title must  be between 3 and 100 characters long. And content More that 3 characters',
+        'error'
+      );
+      return;
+    }
+
+    const note: Note = {
+      title: this.title,
+      htmlContent: this.htmlContent,
+    };
+
+    try {
+      this.toast.loader(true);
+      const res = await this.api.put('Notes/' + this.note?.id, note);
+      this.toast.loader(false);
+      this.toast.show('Note Saved', 'Your note has been Saved!.', 'success');
+      console.log(res);
+      this.router.navigate(['/note-viewer', this.note?.id]);
+    } catch (err) {
+      this.toast.loader(false);
+      this.toast.show(
+        "Note wasn't Saved!",
+        'There was a problem Saving your Note.',
         'error'
       );
     }

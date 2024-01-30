@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Note } from '../models/note';
 
 @Injectable({
   providedIn: 'root',
@@ -28,15 +29,17 @@ export class ApiService {
     return data;
   }
 
-  async put(path: string, body: {}) {
+  async put(path: string, body: Note) {
+    const Id = parseInt(path.split('/')[1]);
+
     const raw = await fetch(this.baseUrl + path, {
       method: 'PUT',
-      body: JSON.stringify(body),
+      body: JSON.stringify({ ...body, Id }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    const data = await raw.json();
+    const data = await raw.text();
 
     return data;
   }

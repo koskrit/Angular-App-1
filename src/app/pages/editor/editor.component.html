@@ -30,13 +30,23 @@
     [(ngModel)]="htmlContent"
     [config]="editorConfig"
   ></angular-editor>
-
+  @if (isNoteEditMode) {
   <div>
     <button
       (click)="saveNote()"
+      class="hover:shadow-form w-full rounded-md bg-green-500 py-3 px-8 text-center text-base font-semibold text-white outline-none"
+    >
+      Save
+    </button>
+  </div>
+  } @else {
+  <div>
+    <button
+      (click)="createNote()"
       class="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none"
     >
       Submit
     </button>
   </div>
+  }
 </div>

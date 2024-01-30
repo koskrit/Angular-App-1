@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './core/components/loading/loading.component';
 import { NoteItemComponent } from './pages/view/components/note-item/note-item.component';
 import { NoteViewerComponent } from './pages/note-viewer/note-viewer.component';
+import { NoteToolbarComponent } from './core/components/note-toolbar/note-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NoteViewerComponent } from './pages/note-viewer/note-viewer.component';
     LoadingComponent,
     NoteItemComponent,
     NoteViewerComponent,
+    NoteToolbarComponent,
   ],
   imports: [
     BrowserModule,

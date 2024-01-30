@@ -1,0 +1,29 @@
+<div class="bg-white shadow-md py-4">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <img
+          class="h-10 w-10 rounded-full"
+          src="https://placehold.co/100x100"
+          alt="Placeholder image for the company logo, should be replaced by an AI-generated company logo."
+        />
+        <h1 class="text-xl font-semibold">Company Name</h1>
+      </div>
+      <div class="flex space-x-3">
+        <button
+          (click)="deleteNote()"
+          class="flex items-center px-3 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md"
+        >
+          <i class="fas fa-trash-alt mr-2"></i>
+          <span>Delete</span>
+        </button>
+        <a
+          class="flex items-center px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+        >
+          <i class="fas fa-edit mr-2"></i>
+          <span>Edit</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

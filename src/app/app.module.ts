@@ -17,6 +17,7 @@ import { SigninCallbackComponent } from './pages/signin-callback/signin-callback
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { EditorComponent } from './pages/editor/editor.component';
 import { FormsModule } from '@angular/forms';
+import { LoadingComponent } from './core/components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     RegisterCallbackComponent,
     SigninCallbackComponent,
     EditorComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

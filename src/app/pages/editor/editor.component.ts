@@ -3,6 +3,7 @@ import { Note } from '../../models/note';
 import { inputValidators, validateLength } from '../../lib/utils/validators';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { ApiService } from '../../services/api.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-editor',
@@ -10,7 +11,7 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './editor.component.css',
 })
 export class EditorComponent {
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private toast: NotificationService) {}
   htmlContent = '';
   title = '';
 
@@ -52,7 +53,11 @@ export class EditorComponent {
   async saveNote() {
     const validationPassed = validateLength(this.title.length, 3, 100);
     if (!validationPassed) {
-      alert('Check your Title length');
+      this.toast.show(
+        'Validation Error',
+        'Title must  be between 3 and 100 characters long.',
+        'error'
+      );
       return;
     }
 
@@ -61,8 +66,21 @@ export class EditorComponent {
       htmlContent: this.htmlContent,
     };
 
-    const res = await this.api.post('Notes', note);
+    try {
+      const res = await this.api.post('Notes', note);
 
-    console.log(res);
+      this.toast.show(
+        'Note Created',
+        'Your new note has been created.',
+        'success'
+      );
+      console.log(res);
+    } catch (err) {
+      this.toast.show(
+        "Note wasn't created!",
+        'There was a problem creating your Note.',
+        'error'
+      );
+    }
   }
 }

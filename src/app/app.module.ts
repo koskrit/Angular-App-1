@@ -18,6 +18,7 @@ import { EditorComponent } from './pages/editor/editor.component';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './core/components/loading/loading.component';
 import { NoteItemComponent } from './pages/view/components/note-item/note-item.component';
+import { NoteViewerComponent } from './pages/note-viewer/note-viewer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NoteItemComponent } from './pages/view/components/note-item/note-item.c
     EditorComponent,
     LoadingComponent,
     NoteItemComponent,
+    NoteViewerComponent,
   ],
   imports: [
     BrowserModule,

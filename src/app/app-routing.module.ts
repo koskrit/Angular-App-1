@@ -7,6 +7,7 @@ import { NotFound404Component } from './pages/not-found404/not-found404.componen
 import { RegisterCallbackComponent } from './pages/register-callback/register-callback.component';
 import { SigninCallbackComponent } from './pages/signin-callback/signin-callback.component';
 import { EditorComponent } from './pages/editor/editor.component';
+import { NoteViewerComponent } from './pages/note-viewer/note-viewer.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'editor',
     component: EditorComponent,
+  },
+
+  {
+    path: 'note-viewer/:id',
+    component: NoteViewerComponent,
   },
   {
     path: '**',

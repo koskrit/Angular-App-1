@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Note } from '../../../../models/note';
 import { strTruncate, timePassedSince } from '../../../../lib/utils/string';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-note-item',
@@ -9,8 +10,15 @@ import { strTruncate, timePassedSince } from '../../../../lib/utils/string';
 })
 export class NoteItemComponent {
   @Input() note: Note | undefined;
+  noteUrl: string | undefined;
 
-  ngOnInit() {}
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.noteUrl = this.router
+      .createUrlTree(['/note-viewer', this.note?.id])
+      .toString();
+  }
 
   getTitle() {
     return strTruncate(this.note?.title, 26);

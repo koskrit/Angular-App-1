@@ -56,11 +56,13 @@ export class EditorComponent {
   }
 
   async saveNote() {
-    const validationPassed = validateLength(this.title.length, 3, 100);
-    if (!validationPassed) {
+    const titleValidated = validateLength(this.title.length, 3, 100);
+    const contentValidated = validateLength(this.htmlContent.length, 3);
+
+    if (!titleValidated || !contentValidated) {
       this.toast.show(
         'Validation Error',
-        'Title must  be between 3 and 100 characters long.',
+        'Title must  be between 3 and 100 characters long. And content More that 3 characters',
         'error'
       );
       return;

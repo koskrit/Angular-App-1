@@ -7,7 +7,7 @@
           src="https://placehold.co/100x100"
           alt="Placeholder image for the company logo, should be replaced by an AI-generated company logo."
         />
-        <h1 class="text-xl font-semibold">Company Name</h1>
+        <h1 class="text-xl font-semibold">{{ note?.title }}</h1>
       </div>
       <div class="flex space-x-3">
         <button
@@ -18,6 +18,7 @@
           <span>Delete</span>
         </button>
         <a
+          [routerLink]="noteUrl"
           class="flex items-center px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
         >
           <i class="fas fa-edit mr-2"></i>

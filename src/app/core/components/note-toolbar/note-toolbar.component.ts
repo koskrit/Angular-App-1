@@ -12,13 +12,21 @@ import { Router } from '@angular/router';
 export class NoteToolbarComponent {
   @Input() note: Note | undefined;
 
+  noteUrl: string | undefined;
+
   constructor(
     private api: ApiService,
     private toast: NotificationService,
     private router: Router
   ) {}
+  ngAfterContentChecked() {
+    this.noteUrl = this.router
+      .createUrlTree(['/editor', this.note?.id])
+      .toString();
+  }
 
   async deleteNote() {
+    debugger;
     this.toast.loader(true);
     try {
       const res = await this.api.delete(
@@ -30,7 +38,7 @@ export class NoteToolbarComponent {
 
       this.toast.show(
         'Note  deleted',
-        'Note was successfully Deleted Successfully',
+        'Note was Deleted Successfully',
         'success'
       );
 
@@ -38,7 +46,7 @@ export class NoteToolbarComponent {
     } catch (err: any) {
       this.toast.loader(false);
       this.toast.show(
-        "Note wasn't Deleted",
+        'Problem Deleting Note',
         'There was an issue while trying to delete your Note',
         'error'
       );

@@ -10,10 +10,10 @@
   <header class="flex items-center justify-between leading-tight p-2 md:p-4">
     <h1 class="text-lg">
       <a class="no-underline hover:underline text-black" href="#">
-        Article Title
+        {{ getTitle() }}
       </a>
     </h1>
-    <p class="text-grey-darker text-sm">11/1/19</p>
+    <p class="text-grey-darker text-sm">{{ getTimePassed() }}</p>
   </header>
 
   <footer class="flex items-center justify-between leading-none p-2 md:p-4">

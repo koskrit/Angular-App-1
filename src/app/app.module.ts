@@ -9,7 +9,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { CreateComponent } from './pages/create/create.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { ViewComponent } from './pages/view/view.component';
-import { ArticleComponent } from './pages/view/components/article/article.component';
 import { NotFound404Component } from './pages/not-found404/not-found404.component';
 import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
 import { RegisterCallbackComponent } from './pages/register-callback/register-callback.component';
@@ -18,6 +17,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { EditorComponent } from './pages/editor/editor.component';
 import { FormsModule } from '@angular/forms';
 import { LoadingComponent } from './core/components/loading/loading.component';
+import { NoteItemComponent } from './pages/view/components/note-item/note-item.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +27,12 @@ import { LoadingComponent } from './core/components/loading/loading.component';
     CreateComponent,
     FooterComponent,
     ViewComponent,
-    ArticleComponent,
     NotFound404Component,
     RegisterCallbackComponent,
     SigninCallbackComponent,
     EditorComponent,
     LoadingComponent,
+    NoteItemComponent,
   ],
   imports: [
     BrowserModule,

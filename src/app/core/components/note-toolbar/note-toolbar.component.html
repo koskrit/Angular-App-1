@@ -17,6 +17,7 @@
           <i class="fas fa-trash-alt mr-2"></i>
           <span>Delete</span>
         </button>
+        @if (!isEditor) {
         <a
           [routerLink]="noteUrl"
           class="flex items-center px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
@@ -24,6 +25,7 @@
           <i class="fas fa-edit mr-2"></i>
           <span>Edit</span>
         </a>
+        }
       </div>
     </div>
   </div>

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class NoteToolbarComponent {
   @Input() note: Note | undefined;
+  @Input() isEditor: boolean = false;
 
   noteUrl: string | undefined;
 

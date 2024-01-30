@@ -1,5 +1,5 @@
 <article class="overflow-hidden rounded-lg shadow-lg">
-  <a href="#">
+  <a [href]="'view/' + note?.id">
     <img
       alt="Placeholder"
       class="block h-auto w-full"
@@ -30,7 +30,7 @@
     </a>
     <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
       <span class="hidden">Like</span>
-      <i class="fa fa-heart"></i>
+      <i class="fa-regular fa-pen-to-square"></i>
     </a>
   </footer>
 </article>

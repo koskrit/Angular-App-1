@@ -1,3 +1,4 @@
+import { isAuthenticated } from './../state/auth';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Component, HostListener, ElementRef } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
@@ -13,6 +14,7 @@ export class HeaderComponent {
   showMobileMenu = false;
 
   authService: AuthService;
+  isAuthenticated = isAuthenticated;
 
   constructor(
     private elementRef: ElementRef,

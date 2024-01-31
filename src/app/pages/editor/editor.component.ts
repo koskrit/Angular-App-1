@@ -88,7 +88,7 @@ export class EditorComponent {
     inputValidators.inputLength(target, 3, 100);
   }
 
-  async createNote() {
+  validateTitle() {
     const titleValidated = validateLength(this.title.length, 3, 100);
     const contentValidated = validateLength(this.htmlContent.length, 3);
 
@@ -98,8 +98,14 @@ export class EditorComponent {
         'Title must  be between 3 and 100 characters long. And content More that 3 characters',
         'error'
       );
-      return;
+      return false;
     }
+
+    return true;
+  }
+
+  async createNote() {
+    if (!this.validateTitle()) return;
 
     const note: Note = {
       title: this.title,
@@ -128,18 +134,7 @@ export class EditorComponent {
   }
 
   async saveNote() {
-    debugger;
-    const titleValidated = validateLength(this.title.length, 3, 100);
-    const contentValidated = validateLength(this.htmlContent.length, 3);
-
-    if (!titleValidated || !contentValidated) {
-      this.toast.show(
-        'Validation Error',
-        'Title must  be between 3 and 100 characters long. And content More that 3 characters',
-        'error'
-      );
-      return;
-    }
+    if (!this.validateTitle()) return;
 
     const note: Note = {
       title: this.title,

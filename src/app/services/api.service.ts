@@ -1,3 +1,4 @@
+import { authInfo } from './../core/state/auth';
 import { Injectable } from '@angular/core';
 import { Note } from '../models/note';
 
@@ -6,6 +7,7 @@ import { Note } from '../models/note';
 })
 export class ApiService {
   baseUrl = 'https://localhost:5173/';
+  authInfo = authInfo;
 
   constructor() {}
 

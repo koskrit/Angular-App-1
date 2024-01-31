@@ -1,4 +1,4 @@
-import { isAuthenticated } from './core/state/auth';
+import { authInfo, isAuthenticated } from './core/state/auth';
 import { Component } from '@angular/core';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 
@@ -10,6 +10,7 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
 export class AppComponent {
   title = 'new-app';
   isAuthenticated = isAuthenticated;
+  authInfo = authInfo;
 
   constructor(private oidcSecurityService: OidcSecurityService) {}
 
@@ -17,6 +18,7 @@ export class AppComponent {
     this.oidcSecurityService.checkAuth().subscribe((AuthInfo) => {
       console.log(AuthInfo);
       isAuthenticated.set(AuthInfo.isAuthenticated);
+      authInfo.set(AuthInfo);
     });
   }
 }

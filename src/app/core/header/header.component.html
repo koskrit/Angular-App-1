@@ -50,9 +50,9 @@
                 src="https://via.placeholder.com/48"
                 alt="User Avatar"
               />
-              <span class="text-sm font-medium text-gray-800 mr-4"
-                >Username</span
-              >
+              <span class="text-sm font-medium text-gray-800 mr-4">{{
+                authInfo()?.userData?.name
+              }}</span>
             </button>
 
             <!-- Dropdown menu, show/hide based on menu state. -->

@@ -35,6 +35,11 @@
                 "glob": "**/*",
                 "input": "./node_modules/@kolkov/angular-editor/assets/",
                 "output": "./assets/fonts/"
+              },
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": ["src/styles.css"],
@@ -100,6 +105,11 @@
                 "glob": "**/*",
                 "input": "./node_modules/@kolkov/angular-editor/assets/",
                 "output": "./assets/fonts/"
+              },
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": ["src/styles.css"],

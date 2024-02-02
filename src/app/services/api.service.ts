@@ -12,18 +12,23 @@ export class ApiService {
   constructor() {}
 
   async get(path: string) {
-    const raw = await fetch(this.baseUrl + path, {});
+    const { user, headers } = this.getRequestInfo();
+
+    const raw = await fetch(this.baseUrl + path + `?User=${user}`, { headers });
     const data = await raw.json();
 
     return data;
   }
 
   async post(path: string, body: {}) {
-    const raw = await fetch(this.baseUrl + path, {
+    const { user, headers } = this.getRequestInfo();
+
+    const raw = await fetch(this.baseUrl + path + `?User=${user}`, {
       method: 'POST',
       body: JSON.stringify(body),
       headers: {
         'Content-Type': 'application/json',
+        ...headers,
       },
     });
     const data = await raw.json();
@@ -33,12 +38,14 @@ export class ApiService {
 
   async put(path: string, body: Note) {
     const Id = parseInt(path.split('/')[1]);
+    const { user, headers } = this.getRequestInfo();
 
-    const raw = await fetch(this.baseUrl + path, {
+    const raw = await fetch(this.baseUrl + path + `?User=${user}`, {
       method: 'PUT',
       body: JSON.stringify({ ...body, Id }),
       headers: {
         'Content-Type': 'application/json',
+        ...headers,
       },
     });
     const data = await raw.text();
@@ -47,12 +54,26 @@ export class ApiService {
   }
 
   async delete(path: string, id: number) {
-    debugger;
-    const raw = await fetch(this.baseUrl + path + `/${id}`, {
+    const { user, headers } = this.getRequestInfo();
+
+    const raw = await fetch(this.baseUrl + path + `/${id}` + `?User=${user}`, {
+      headers,
       method: 'DELETE',
     });
     const data = await raw.text();
 
     return data;
+  }
+
+  getRequestInfo() {
+    const user = this.authInfo()?.userData.name;
+    const headers = {
+      Authorization: `Bearer ${this.authInfo()?.accessToken}`,
+    };
+
+    return {
+      user,
+      headers,
+    };
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-register-callback',
@@ -7,9 +8,18 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './register-callback.component.css',
 })
 export class RegisterCallbackComponent {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private toast: NotificationService
+  ) {
+    this.toast.loader(true);
+  }
 
   ngOnInit() {
     this.authService.login();
+  }
+
+  ngOnDestroy() {
+    this.toast.loader(false);
   }
 }

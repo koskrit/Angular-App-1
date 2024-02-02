@@ -27,4 +27,12 @@ export class NoteItemComponent {
   getTimePassed() {
     return timePassedSince(this.note?.createdAt);
   }
+
+  openNote() {
+    if (this.note) {
+      this.router.navigate(['editor'], {
+        queryParams: { id: this.note.id },
+      });
+    }
+  }
 }

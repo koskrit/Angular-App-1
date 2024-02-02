@@ -17,18 +17,18 @@
   </header>
 
   <footer class="flex items-center justify-between leading-none p-2 md:p-4">
-    <a
-      class="flex items-center no-underline hover:underline text-black"
-      href="#"
-    >
+    <a class="flex items-center no-underline text-black cursor-default">
       <img
         alt="Placeholder"
         class="block rounded-full"
         src="/assets/img/small-icon-2.png"
       />
-      <p class="ml-2 text-sm">Author Name</p>
+      <p class="ml-2 text-sm">{{ note?.user }}</p>
     </a>
-    <a class="no-underline text-grey-darker hover:text-red-dark">
+    <a
+      (click)="openNote()"
+      class="no-underline text-grey-darker hover:text-red-dark cursor-pointer"
+    >
       <span class="hidden">Edit</span>
       <i class="fa-regular fa-pen-to-square"></i>
     </a>

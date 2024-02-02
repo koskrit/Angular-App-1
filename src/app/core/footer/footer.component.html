@@ -11,11 +11,33 @@
       <div>
         <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
         <ul>
-          <a routerLink="/"><li class="text-gray-400 text-sm">Home</li></a>
-          <a routerLink=""><li class="text-gray-400 text-sm">View</li></a>
-          <a routerLink="create"
-            ><li class="text-gray-400 text-sm">Create</li></a
+          @if (isAuthenticated()) {
+          <a routerLink="/"
+            ><li class="text-gray-400 hover:text-gray-300 text-sm">Home</li></a
           >
+          <a routerLink="view"
+            ><li class="text-gray-400 hover:text-gray-300 text-sm">View</li></a
+          >
+          <a routerLink="create"
+            ><li class="text-gray-400 hover:text-gray-300 text-sm">
+              Create
+            </li></a
+          >
+          } @else {
+          <a routerLink="/"
+            ><li class="text-gray-400 hover:text-gray-300 text-sm">Home</li></a
+          >
+          <a
+            ><li class="text-gray-400 text-sm filter grayscale cursor-default">
+              View🔒
+            </li></a
+          >
+          <a
+            ><li class="text-gray-400 text-sm filter grayscale cursor-default">
+              Create🔒
+            </li></a
+          >
+          }
           <!-- <a><li class="text-gray-400 text-sm">Contact Us</li></a> -->
         </ul>
       </div>
@@ -28,16 +50,28 @@
         </ul>
       </div>
       <div>
-        <h2 class="text-lg font-semibold mb-4">Follow Us</h2>
-        <div class="flex space-x-4">
-          <a href="#" class="hover:text-gray-300">
-            <i class="fab fa-facebook-f fa-lg"></i>
+        <h2 class="text-lg font-semibold mb-4">Find the Code</h2>
+        <div class="flex flex-col">
+          <a
+            href="https://github.com/koskrit/Angular-App-1"
+            class="hover:text-gray-300 text-sm text-gray-400"
+          >
+            <i class="fa-brands fa-github-alt fa-lg"></i>
+            Frontend
           </a>
-          <a href="#" class="hover:text-gray-300">
-            <i class="fab fa-twitter fa-lg"></i>
+          <a
+            href="https://github.com/koskrit/dotnet-webapi-1"
+            class="hover:text-gray-300 text-sm text-gray-400"
+          >
+            <i class="fa-brands fa-github fa-lg"></i>
+            Backend
           </a>
-          <a href="#" class="hover:text-gray-300">
-            <i class="fab fa-instagram fa-lg"></i>
+          <a
+            href="https://github.com/koskrit/identity-server"
+            class="hover:text-gray-300 text-sm text-gray-400"
+          >
+            <i class="fa-brands fa-square-github fa-lg"></i>
+            IdentityServer
           </a>
         </div>
       </div>

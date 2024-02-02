@@ -20,6 +20,7 @@ import { LoadingComponent } from './core/components/loading/loading.component';
 import { NoteItemComponent } from './pages/view/components/note-item/note-item.component';
 import { NoteViewerComponent } from './pages/note-viewer/note-viewer.component';
 import { NoteToolbarComponent } from './core/components/note-toolbar/note-toolbar.component';
+import { NoContentComponent } from './pages/view/components/no-content/no-content.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NoteToolbarComponent } from './core/components/note-toolbar/note-toolba
     NoteItemComponent,
     NoteViewerComponent,
     NoteToolbarComponent,
+    NoContentComponent,
   ],
   imports: [
     BrowserModule,

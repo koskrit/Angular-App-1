@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -18,9 +19,8 @@ export class AuthService {
   }
 
   register() {
-    const callbackUrl = 'http://localhost:4200/register-callback';
+    const callbackUrl = environment.urls.registerCallback;
     const params = new URLSearchParams(`redirectUrl=${callbackUrl}`);
-    window.location.href =
-      'https://localhost:4242/Account/Register?' + params.toString();
+    window.location.href = `${environment.urls.register}?` + params.toString();
   }
 }

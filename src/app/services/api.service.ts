@@ -1,12 +1,13 @@
 import { authInfo } from './../core/state/auth';
 import { Injectable } from '@angular/core';
 import { Note } from '../models/note';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  baseUrl = 'https://localhost:5173/';
+  baseUrl = environment.urls.apiBaseUrl;
   authInfo = authInfo;
 
   constructor() {}

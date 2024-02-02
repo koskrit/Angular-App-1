@@ -13,6 +13,6 @@ export class HomeComponent {
   constructor(private AuthService: AuthService) {}
 
   register() {
-    this.AuthService.login();
+    this.AuthService.register();
   }
 }

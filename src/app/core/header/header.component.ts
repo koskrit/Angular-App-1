@@ -1,4 +1,4 @@
-import { isAuthenticated, authInfo } from './../state/auth';
+import { isAuthenticated, authInfo, userData } from './../state/auth';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Component, HostListener, ElementRef } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
@@ -15,7 +15,7 @@ export class HeaderComponent {
 
   authService: AuthService;
   isAuthenticated = isAuthenticated;
-  authInfo = authInfo;
+  userData = userData;
 
   constructor(
     private elementRef: ElementRef,

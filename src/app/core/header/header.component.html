@@ -38,8 +38,9 @@
         >
         }
       </div>
-      <a routerLink="/">
+      <a id="header-logo-a" routerLink="/">
         <div
+          id="header-logo-div"
           class="bg-white flex-row flex items-center justify-center order-first md:order-none"
         >
           <img src="assets/img/header-logo.png" class="w-12 md:w-16" />
@@ -60,7 +61,7 @@
             >
               <img
                 class="h-12 w-12 rounded-full m-2"
-                src="https://via.placeholder.com/48"
+                src="assets/img/user-icon.png"
                 alt="User Avatar"
               />
               <span class="text-sm font-medium text-gray-800 mr-4">{{
@@ -77,18 +78,6 @@
               id="user-menu"
               *ngIf="showModal"
             >
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                role="menuitem"
-                >Your Profile</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                role="menuitem"
-                >Settings</a
-              >
               <a
                 href="#"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -138,48 +127,48 @@
           <a
             routerLink=""
             fontfamily="Raleway"
-            class="text-gray-600 text-center mt-2 font-medium text-base"
+            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             >Home</a
           >
           @if (isAuthenticated()) {
           <a
             routerLink="View"
             fontfamily="Raleway"
-            class="text-gray-600 text-center mt-2 font-medium text-base"
+            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             >View</a
           >
           <a
             routerLink="Create"
             fontfamily="Raleway"
-            class="text-gray-600 text-center mt-2 font-medium text-base"
+            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             >Create</a
           >
           } @else {
           <a
             fontfamily="Raleway"
-            class="text-gray-400 text-center mt-2 font-medium text-base"
-            >🔒View</a
+            class="text-gray-400 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-default"
+            >View</a
           >
           <a
             fontfamily="Raleway"
-            class="text-gray-400 text-center mt-2 font-medium text-base"
-            >🔒Create</a
+            class="text-gray-400 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-default"
+            >Create</a
           >
-          }
-          <button
+          <a
             fontfamily="Arial"
-            class="h-9 w-24 text-gray-600 bg-white border-2 border-white flex items-center justify-center text-center rounded-lg text-lg font-normal mt-2 mr-auto ml-auto"
+            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             (click)="authService.login()"
           >
             Sign in
-          </button>
-          <button
+          </a>
+          <a
             fontfamily="Arial"
-            class="h-9 w-24 text-white bg-blue-700 hover:bg-blue-900 hover:border-blue-900 border-2 flex items-center justify-center text-center border-blue-700 rounded-lg text-lg font-normal mt-2 mr-auto ml-auto"
+            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             (click)="authService.logout()"
           >
             Sign up
-          </button>
+          </a>
+          }
         </div>
       </div>
     </div>

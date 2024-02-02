@@ -8,11 +8,21 @@
         Organize your thoughts and boost productivity with our easy-to-use
         note-taking app.
       </p>
+      @if (isAuthenticated()) {
       <button
+        routerLink="editor"
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded pulse-button"
       >
-        Get Started
+        Create a Note
       </button>
+      } @else {
+      <button
+        (click)="register()"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded pulse-button"
+      >
+        Create An Account
+      </button>
+      }
     </div>
   </div>
 </div>

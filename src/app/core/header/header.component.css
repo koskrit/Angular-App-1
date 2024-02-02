@@ -1,0 +1,9 @@
+@media (min-width: 768px) {
+  #header-logo-a {
+    width: 20%;
+  }
+
+  #header-logo-div {
+    width: 86%;
+  }
+}

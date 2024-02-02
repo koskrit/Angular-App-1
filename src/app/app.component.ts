@@ -1,11 +1,11 @@
 import { authInfo, isAuthenticated, userData } from './core/state/auth';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   EventTypes,
   OidcSecurityService,
   PublicEventsService,
 } from 'angular-auth-oidc-client';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,16 +19,19 @@ export class AppComponent {
   userData = userData;
 
   constructor(
-    // Todo finish the state management and change statenwhen the signout happens
     private oidcSecurityService: OidcSecurityService,
-    private eventService: PublicEventsService
+    private eventService: PublicEventsService,
+    private router: Router
   ) {
     this.eventService.registerForEvents().subscribe((event) => {
       if (event.type === EventTypes.UserDataChanged) {
         authInfo.set(event.value);
-        isAuthenticated.set(event.value);
+        isAuthenticated.set(event.value.isAuthenticated);
         userData.set(event.value.userData);
         console.log({ event }, 'userdatachanged');
+        if (!event.value.isAuthenticated) {
+          this.router.navigate(['/']);
+        }
       }
     });
   }

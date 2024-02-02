@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
+import {
+  LogoutAuthOptions,
+  OidcSecurityService,
+} from 'angular-auth-oidc-client';
 import { environment } from '../../environments/environment.development';
 import { NotificationService } from './notification.service';
 
@@ -18,10 +21,13 @@ export class AuthService {
   }
 
   logout() {
-    this.toast.loader(true);
+    const logoutAuthOptions: LogoutAuthOptions = {
+      logoffMethod: 'POST',
+    };
+
     this.oidcSecurityService
-      .logoff()
-      .subscribe((result) => console.log(result));
+      .logoff('', logoutAuthOptions)
+      .subscribe((result) => this.toast.loader(false));
   }
 
   register() {

@@ -16,9 +16,12 @@ export class ViewComponent {
 
   async ngOnInit() {
     this.toast.loader(true);
+
     try {
       const data = (await this.api.get('notes')) as Note[];
-      this.notes = data.reverse();
+      data.sort((a: any, b: any) => a.id - b.id).reverse();
+
+      this.notes = data;
       this.toast.loader(false);
       this.isLoading = false;
     } catch (err: any) {

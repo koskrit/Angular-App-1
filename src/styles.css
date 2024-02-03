@@ -24,3 +24,11 @@
     @apply text-sm lg:text-lg;
   }
 }
+
+/* Angular Editor */
+
+@media (max-width: 768px) {
+  .angular-editor-textarea {
+    min-height: 38vh !important;
+  }
+}

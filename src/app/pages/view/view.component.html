@@ -1,9 +1,21 @@
-<div class="container mx-auto p-4 flex items-center justify-center min-h-96">
+@if (isLoading) {
+<app-content-loading style="opacity: 0.1"></app-content-loading>
+<app-content-loading style="opacity: 0.1"></app-content-loading>
+<app-content-loading style="opacity: 0.1"></app-content-loading>
+} @else {
+<div
+  class="container mx-auto p-4 flex items-center justify-center min-h-96 border-t"
+>
+  @if (notes.length) {
+
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    @if (notes.length) { @for (note of notes; track $index) {
+    @for (note of notes; track $index) {
     <app-note-item [note]="note"></app-note-item>
-    } } @else {
-    <app-no-content class="w-full"></app-no-content>
     }
   </div>
+
+  } @else {
+  <app-no-content class="w-full"></app-no-content>
+  }
 </div>
+}

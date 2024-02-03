@@ -10,6 +10,7 @@ import { Note } from '../../models/note';
 })
 export class ViewComponent {
   notes: Note[] = [];
+  isLoading = true;
 
   constructor(private api: ApiService, private toast: NotificationService) {}
 
@@ -19,8 +20,11 @@ export class ViewComponent {
       const data = (await this.api.get('notes')) as Note[];
       this.notes = data.reverse();
       this.toast.loader(false);
+      this.isLoading = false;
     } catch (err: any) {
       this.toast.loader(false);
+      this.isLoading = false;
+
       this.toast.show(
         "Notes couldn't be loaded",
         'There was an Issue while loading your Notes',

@@ -26,6 +26,7 @@ import { NoteViewerComponent } from './pages/note-viewer/note-viewer.component';
 import { NoteToolbarComponent } from './core/components/note-toolbar/note-toolbar.component';
 import { NoContentComponent } from './pages/view/components/no-content/no-content.component';
 import { OidcCustomStorageService } from './services/oidc-custom-storage.service';
+import { ContentLoadingComponent } from './core/components/content-loading/content-loading.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { OidcCustomStorageService } from './services/oidc-custom-storage.service
     NoteViewerComponent,
     NoteToolbarComponent,
     NoContentComponent,
+    ContentLoadingComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,11 @@ import { CreateComponent } from './pages/create/create.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { ViewComponent } from './pages/view/view.component';
 import { NotFound404Component } from './pages/not-found404/not-found404.component';
-import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
+import {
+  AbstractSecurityStorage,
+  AuthModule,
+  LogLevel,
+} from 'angular-auth-oidc-client';
 import { RegisterCallbackComponent } from './pages/register-callback/register-callback.component';
 import { SigninCallbackComponent } from './pages/signin-callback/signin-callback.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
@@ -21,6 +25,7 @@ import { NoteItemComponent } from './pages/view/components/note-item/note-item.c
 import { NoteViewerComponent } from './pages/note-viewer/note-viewer.component';
 import { NoteToolbarComponent } from './core/components/note-toolbar/note-toolbar.component';
 import { NoContentComponent } from './pages/view/components/no-content/no-content.component';
+import { OidcCustomStorageService } from './services/oidc-custom-storage.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +58,9 @@ import { NoContentComponent } from './pages/view/components/no-content/no-conten
     AngularEditorModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: AbstractSecurityStorage, useClass: OidcCustomStorageService },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -31,4 +31,8 @@
   .angular-editor-textarea {
     min-height: 38vh !important;
   }
+
+  .hero-background {
+    height: 73vh;
+  }
 }

@@ -1,6 +1,6 @@
 import { authInfo, isAuthenticated, userData } from './core/state/auth';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import {
   EventTypes,
   OidcSecurityService,
@@ -42,6 +42,16 @@ export class AppComponent {
       isAuthenticated.set(AuthInfo.isAuthenticated);
       authInfo.set(AuthInfo);
       userData.set(AuthInfo.userData);
+    });
+
+    this.addScrollToTop();
+  }
+
+  addScrollToTop() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo(0, 0);
+      }
     });
   }
 }

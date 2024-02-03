@@ -125,6 +125,7 @@
       <div>
         <div class="flex flex-col">
           <a
+            (click)="toggleMobileMenu()"
             routerLink=""
             fontfamily="Raleway"
             class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
@@ -132,12 +133,14 @@
           >
           @if (isAuthenticated()) {
           <a
+            (click)="toggleMobileMenu()"
             routerLink="view"
             fontfamily="Raleway"
             class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             >View</a
           >
           <a
+            (click)="toggleMobileMenu()"
             routerLink="editor"
             fontfamily="Raleway"
             class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"

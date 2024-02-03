@@ -132,28 +132,19 @@
           >
           @if (isAuthenticated()) {
           <a
-            routerLink="View"
+            routerLink="view"
             fontfamily="Raleway"
             class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             >View</a
           >
           <a
-            routerLink="Create"
+            routerLink="editor"
             fontfamily="Raleway"
             class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             >Create</a
           >
           } @else {
-          <a
-            fontfamily="Raleway"
-            class="text-gray-400 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-default"
-            >View</a
-          >
-          <a
-            fontfamily="Raleway"
-            class="text-gray-400 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-default"
-            >Create</a
-          >
+
           <a
             fontfamily="Arial"
             class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"

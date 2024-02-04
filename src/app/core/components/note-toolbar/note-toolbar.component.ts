@@ -66,7 +66,9 @@ export class NoteToolbarComponent {
       return strTruncate(str, 40);
     else if (window.innerWidth < 800 && window.innerWidth > 700)
       return strTruncate(str, 30);
-    else if (window.innerWidth < 700) return strTruncate(str, 15);
+    else if (window.innerWidth < 700 && window.innerWidth > 500)
+      return strTruncate(str, 15);
+    else if (window.innerWidth < 500) return strTruncate(str, 7);
     else return str;
   }
 }

@@ -3,6 +3,7 @@ import { Note } from '../../../models/note';
 import { ApiService } from '../../../services/api.service';
 import { NotificationService } from '../../../services/notification.service';
 import { Router } from '@angular/router';
+import { strTruncate } from '../../../lib/utils/string';
 
 @Component({
   selector: 'app-note-toolbar',
@@ -58,5 +59,14 @@ export class NoteToolbarComponent {
         'error'
       );
     }
+  }
+
+  truncate(str: string | undefined) {
+    if (window.innerWidth < 1000 && window.innerWidth > 800)
+      return strTruncate(str, 40);
+    else if (window.innerWidth < 800 && window.innerWidth > 700)
+      return strTruncate(str, 30);
+    else if (window.innerWidth < 700) return strTruncate(str, 15);
+    else return str;
   }
 }

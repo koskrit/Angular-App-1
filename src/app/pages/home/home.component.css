@@ -23,3 +23,32 @@
 .pulse-button:hover {
   animation: pulse-animation 1s ease infinite;
 }
+
+.starting-page-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.starting-page-preloader {
+  pointer-events: none;
+  animation: fadeIn 4s forwards;
+}

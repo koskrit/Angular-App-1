@@ -7,7 +7,9 @@
           src="https://placehold.co/100x100"
           alt="Placeholder image for the company logo, should be replaced by an AI-generated company logo."
         />
-        <h1 class="text-4xl font-bold">{{ note?.title }}</h1>
+        <h1 class="text-md font-bold">
+          {{ truncate(note?.title) }}
+        </h1>
       </div>
       <div class="flex space-x-3">
         <button

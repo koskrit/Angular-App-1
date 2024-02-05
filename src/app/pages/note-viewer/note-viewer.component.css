@@ -1,4 +1,11 @@
 #note-viewer-container {
   border-width: 67px;
   border-color: rgb(230, 232, 237);
+  word-wrap: break-word;
+}
+
+@media only screen and (max-width: 500px) {
+  #note-viewer-container {
+    border-width: 30px;
+  }
 }

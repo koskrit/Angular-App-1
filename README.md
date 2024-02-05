@@ -1,27 +1,31 @@
-# NewApp
+# Angular CMS Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+A Showcase project made for the company Indice
 
-## Development server
+This project is a simple Angular CMS frontend that implements the OPENID authentication standards using an IdentityServer4 and fetches data from a .NET Core WebAPI backend.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Uses
 
-## Code scaffolding
+- Angular CLI: 17.1.1
+- Node: 19.6.1 or higher
+- Package Manager: npm 9.4.0
+- OS: win32 x64
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+1. Clone the repository
+2. Navigate to the project directory
+3. Install the dependencies
+4. Store your OIDC Configuration & Server Urls at the environment.ts file
+5. Run the Project
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Resources
 
-## Running unit tests
+- [Angular](https://angular.io/)
+- [angular-auth-oidc-client](https://www.npmjs.com/package/angular-auth-oidc-client)
+- [IdentityServer4](https://identityserver.io/)
+- [.NET Core](https://dotnet.microsoft.com/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Contributing
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Contributions are welcome! If you find any issues or want to add new features, please submit a pull request.

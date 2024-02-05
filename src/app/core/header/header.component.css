@@ -7,3 +7,12 @@
     width: 86%;
   }
 }
+
+#header-main-container {
+  padding: 11px 35px;
+  border-color: rgb(0, 0, 0);
+
+  -webkit-box-shadow: rgba(0, 0, 0, 0.41) -4px -28px 74px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.41) -4px -28px 74px 0px;
+  box-shadow: rgba(0, 0, 0, 0.41) -4px -28px 74px 0px;
+}

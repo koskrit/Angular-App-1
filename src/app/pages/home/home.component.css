@@ -52,3 +52,11 @@
   pointer-events: none;
   animation: fadeIn 4s forwards;
 }
+
+.hero-background {
+  border-width: 6px;
+  border-color: rgb(0, 0, 0);
+  -webkit-box-shadow: rgb(0, 0, 0) -12px 0px 100px 37px inset;
+  -moz-box-shadow: rgb(0, 0, 0) -12px 0px 100px 37px inset;
+  box-shadow: rgb(0, 0, 0) -12px 0px 100px 37px inset;
+}

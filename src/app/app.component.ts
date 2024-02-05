@@ -6,6 +6,7 @@ import {
   OidcSecurityService,
   PublicEventsService,
 } from 'angular-auth-oidc-client';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,8 @@ export class AppComponent {
   constructor(
     private oidcSecurityService: OidcSecurityService,
     private eventService: PublicEventsService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.eventService.registerForEvents().subscribe((event) => {
       if (event.type === EventTypes.UserDataChanged) {
@@ -44,6 +46,8 @@ export class AppComponent {
       userData.set(AuthInfo.userData);
     });
 
+    console.log(this.authService);
+    // this.authService.checkAuthTimer(1000 * 30);
     this.addScrollToTop();
   }
 

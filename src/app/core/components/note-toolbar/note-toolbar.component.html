@@ -1,20 +1,20 @@
-<div class="bg-white shadow-sm py-4">
+<div class="bg-white shadow-sm py-4" id="note-toolbar-container">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex justify-between items-center">
       <div class="flex items-center space-x-4">
         <img
           class="h-10 w-10 rounded-full"
-          src="https://placehold.co/100x100"
+          src="assets/img/small-icon.jpg"
           alt="Placeholder image for the company logo, should be replaced by an AI-generated company logo."
         />
-        <h1 class="text-md font-bold">
+        <h1 class="text-md font-semibold text-gray-500">
           {{ truncate(note?.title) }}
         </h1>
       </div>
       <div class="flex space-x-3">
         <button
           (click)="deleteNote()"
-          class="flex items-center px-3 py-2 bg-red-500 hover:bg-red-600 text-white rounded-md"
+          class="flex items-center px-3 py-2 bg-violet-600 hover:violet-700 text-white rounded-md justify-center w-24"
         >
           <i class="fas fa-trash-alt mr-2"></i>
           <span>Delete</span>
@@ -23,7 +23,7 @@
         <a
           [routerLink]="noteEditUrl"
           [queryParams]="queryParams"
-          class="flex items-center px-3 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+          class="flex items-center px-3 py-2 bg-indigo-800 hover:indigo-900 text-white rounded-md justify-center w-24"
         >
           <i class="fas fa-edit mr-2"></i>
           <span>Edit</span>
@@ -32,7 +32,7 @@
         <a
           [routerLink]="noteViewUrl"
           [queryParams]="queryParams"
-          class="flex items-center px-3 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-md"
+          class="flex items-center px-3 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md justify-center w-24"
         >
           <i class="fas fa-eye mr-2"></i>
           <span>View</span>

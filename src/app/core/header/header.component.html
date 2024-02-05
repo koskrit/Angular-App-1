@@ -1,4 +1,4 @@
-<div class="bg-white pt-4 pr-8 pb-4 pl-8 shadow-sm">
+<div id="header-main-container" class="bg-white pt-4 pr-8 pb-4 pl-8 shadow-sm">
   <nav class="w-full">
     <div
       class="flex w-full justify-between max-w-screen-2xl md:flex-row mt-auto mr-auto mb-auto ml-auto"
@@ -9,20 +9,20 @@
         <a
           routerLink="/"
           fontfamily="Raleway"
-          class="text-gray-600 text-center mr-6 font-medium text-base hover:text-gray-800"
+          class="text-gray-800 text-center mr-6 font-medium text-base hover:text-gray-800"
           >Home</a
         >
         @if (isAuthenticated()) {
         <a
           routerLink="/view"
           fontfamily="Raleway"
-          class="text-gray-600 text-center mr-6 font-medium text-base hover:text-gray-800"
+          class="text-gray-800 text-center mr-6 font-medium text-base hover:text-gray-800"
           >View</a
         >
         <a
           routerLink="/editor"
           fontfamily="Raleway"
-          class="text-gray-600 text-center font-medium text-base hover:text-gray-800"
+          class="text-gray-800 text-center font-medium text-base hover:text-gray-800"
           >Create</a
         >
         } @else {
@@ -60,7 +60,7 @@
               (click)="toggleModal()"
             >
               <img
-                class="h-12 w-12 rounded-full m-2"
+                class="h-12 w-12 rounded-full m-2 filter grayscale"
                 src="assets/img/user-icon.png"
                 alt="User Avatar"
               />
@@ -71,7 +71,7 @@
 
             <!-- Dropdown menu, show/hide based on menu state. -->
             <div
-              class="origin-top-right top-5 absolute -right-2 mt-12 w-36 rounded-md py-1 bg-white ring- animate-in slide-in-from-top-2"
+              class="origin-top-right top-5 absolute -right-2 mt-12 w-36 rounded-md py-1 bg-white ring- animate-in slide-in-from-top-2 z-50"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="user-menu-button"
@@ -91,14 +91,14 @@
         } @else {
         <button
           fontfamily="Arial"
-          class="h-9 w-24 text-gray-600 bg-white border-2 border-white flex items-center justify-center text-center rounded-lg text-lg font-normal mr-6"
+          class="h-9 w-24 text-gray-800 bg-white border-2 border-white flex items-center justify-center text-center rounded-lg text-lg font-normal mr-6 hover:border-gray-300 border-gray-800"
           (click)="authService.login()"
         >
           Sign in
         </button>
         <button
           fontfamily="Arial"
-          class="h-9 w-24 text-white bg-blue-700 hover:bg-blue-900 hover:border-blue-900 border-2 flex items-center justify-center text-center border-blue-700 rounded-lg text-lg font-normal mr-auto"
+          class="h-9 w-24 text-white bg-gray-950 hover:border-gray-400 border-2 flex items-center justify-center text-center border-gray-950 rounded-lg text-lg font-normal mr-auto"
           (click)="authService.register()"
         >
           Sign up
@@ -128,7 +128,7 @@
             (click)="toggleMobileMenu()"
             routerLink=""
             fontfamily="Raleway"
-            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
+            class="text-gray-800 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             >Home</a
           >
           @if (isAuthenticated()) {
@@ -136,20 +136,20 @@
             (click)="toggleMobileMenu()"
             routerLink="view"
             fontfamily="Raleway"
-            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
+            class="text-gray-800 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             >View</a
           >
           <a
             (click)="toggleMobileMenu()"
             routerLink="editor"
             fontfamily="Raleway"
-            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
+            class="text-gray-800 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             >Create</a
           >
           <a
             href="#"
             fontfamily="Raleway"
-            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
+            class="text-gray-800 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             (click)="authService.logout()"
             >Sign out</a
           >
@@ -157,14 +157,14 @@
 
           <a
             fontfamily="Arial"
-            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
+            class="text-gray-800 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             (click)="authService.login()"
           >
             Sign in
           </a>
           <a
             fontfamily="Arial"
-            class="text-gray-600 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
+            class="text-gray-800 text-center mt-2 font-medium text-base shadow-sm p-2 cursor-pointer hover:text-slate-800"
             (click)="authService.logout()"
           >
             Sign up

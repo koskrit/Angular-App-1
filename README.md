@@ -2,12 +2,12 @@
 
 A Showcase project made for the company Indice
 
-This project is a simple Angular CMS frontend that implements the OPENID authentication standards using an IdentityServer4 and fetches data from a .NET Core WebAPI backend.
+This project is a simple Angular & Tailwind CMS frontend that implements the OPENID authentication standards using an IdentityServer4 and fetches data from a .NET Core WebAPI backend.
 
-## Uses
+## Created on
 
 - Angular CLI: 17.1.1
-- Node: 19.6.1 or higher
+- Node: 19.6.1
 - Package Manager: npm 9.4.0
 - OS: win32 x64
 
